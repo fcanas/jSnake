@@ -3,6 +3,8 @@
 
 A work in progress inspired by [clojure-snake](https://github.com/samccone/clojure-snake).
 
+<img width="272" alt="java-snake" src="https://cloud.githubusercontent.com/assets/34314/9022758/f2d19a32-384f-11e5-832a-c9c03d38ad9b.png">
+
 ### Todo
 
 * [ ] Prevent moving ontop of self

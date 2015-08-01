@@ -1,9 +1,5 @@
 package jSnake;
 
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import javax.swing.Timer;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,10 +7,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Set;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 public class JSnake {
@@ -76,9 +80,19 @@ class Apples implements Drawable {
 		apples.add(p);
 	}
 	public void draw(Graphics g) {
-		g.setColor(Color.red);
-		for (Point a : apples) {
-			a.draw(g);
+		try {
+			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			InputStream input = classLoader.getResourceAsStream("apple.png");
+			BufferedImage i = ImageIO.read(input);
+			for (Point a : apples) {
+				g.drawImage(i, a.x * JSnake.BlockSize, a.y * JSnake.BlockSize, JSnake.BlockSize, JSnake.BlockSize, null);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			g.setColor(Color.red);
+			for (Point a : apples) {
+				a.draw(g);
+			}
 		}
 	}
 }

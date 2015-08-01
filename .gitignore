@@ -1,4 +1,4 @@
+/bin/
 .classpath
 .project
-org.eclipse.jdt.core.prefs
-bin
+.settings/org.eclipse.jdt.core.prefs
